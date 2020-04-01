@@ -1,0 +1,44 @@
+[
+  {
+    "name": "ピクシーマン",
+    "url": "piximan",
+    "description": "バナナを集めてスターを目指す2Dの横スクロールアクションゲーム",
+    "janre_id": 2
+  },
+  {
+    "name": "家防衛",
+    "url": "house-defense",
+    "description": "家に向かってくる怪物たちを追い払え",
+    "janre_id": 1
+  },
+  {
+    "name": "飛ぶ目玉",
+    "url": "flyeye",
+    "description": "か弱い目玉が障害物に当たらないように避け続けるゲーム",
+    "janre_id": 3
+  },
+  {
+    "name": "枯葉の舞",
+    "url": "kareha",
+    "description": "枯れ葉が火に触れないように避け続けるゲーム",
+    "janre_id": 3
+  },
+  {
+    "name": "ぷるタイピング",
+    "url": "typing",
+    "description": "シンプルなタイピングゲーム",
+    "janre_id": 3
+  },
+  {
+    "name": "ぷるブロック崩し",
+    "url": "block",
+    "description": "シンプルなブロック崩しゲーム",
+    "janre_id": 3
+  },
+  {
+    "name": "ぷる的あて",
+    "url": "target",
+    "description": "シンプルな的あてゲーム",
+    "janre_id": 3
+  }
+]
