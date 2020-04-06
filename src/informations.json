@@ -40,5 +40,11 @@
     "url": "target",
     "description": "シンプルな的あてゲーム",
     "janre_id": 3
+  },
+  {
+    "name": "飛ぶクラゲ",
+    "url": "flappyjelly",
+    "description": "クラゲを土管にぶつからないように飛ばし続けるゲーム",
+    "janre_id": 3
   }
 ]

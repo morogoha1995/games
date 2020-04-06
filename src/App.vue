@@ -30,21 +30,37 @@
     </v-app-bar>
 
     <v-content>
-      <v-container>
-        <v-row>
-          <v-col v-for="g in games" :key="g.name" v-show="g.isShow" cols="12" sm="6" md="4" lg="3">
-            <v-card>
-              <v-img :src="getImgSrc(g.url)" :alt="getImgAlt(g.name)" height="180px"></v-img>
-              <v-card-title>{{g.name}}</v-card-title>
-              <v-card-subtitle>{{ getJanreName(g.janre_id) }}</v-card-subtitle>
-              <v-card-text>{{g.description}}</v-card-text>
+      <v-container class="my-4">
+        <transition name="fade-transition" mode="out-in">
+          <div :key="selectedJanre">
+            <v-alert border="left" color="teal" outlined>
+              <div class="title font-weight-bold mb-2">{{ getJanreName(selectedJanre) }}</div>
+              <div class="subtitle-1">タイトル数：{{gameCount}}つ</div>
+            </v-alert>
+            <v-row>
+              <v-col
+                v-for="g in games"
+                :key="g.name"
+                v-show="g.isShow"
+                cols="12"
+                sm="6"
+                md="4"
+                lg="3"
+              >
+                <v-card>
+                  <v-img :src="getImgSrc(g.url)" :alt="getImgAlt(g.name)" height="180px"></v-img>
+                  <v-card-title>{{g.name}}</v-card-title>
+                  <v-card-subtitle>{{ getJanreName(g.janre_id) }}</v-card-subtitle>
+                  <v-card-text>{{g.description}}</v-card-text>
 
-              <v-card-actions>
-                <v-btn :href="getUrl(g.url)" outlined dark color="teal">遊ぶ</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
+                  <v-card-actions>
+                    <v-btn :href="getUrl(g.url)" outlined dark color="teal">遊ぶ</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+            </v-row>
+          </div>
+        </transition>
       </v-container>
     </v-content>
   </v-app>
@@ -89,15 +105,17 @@ export default {
     getGames: function(janreID) {
       let gameCount = 0;
       for (let i = 0; i < this.games.length; i++) {
-        if (this.games[i].janre_id === janreID) {
+        const isShow = this.games[i].janre_id === janreID;
+        this.games[i].isShow = isShow;
+        if (isShow) {
           gameCount++;
-          this.games[i].isShow = true;
         }
       }
       this.gameCount = gameCount;
     },
 
     getJanreName: function(janreID) {
+      if (janreID === 0) return "すべて";
       for (const j of this.janres) {
         if (j.id === janreID) {
           return j.name;
