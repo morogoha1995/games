@@ -3,7 +3,7 @@
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list dense>
         <v-subheader>カテゴリー</v-subheader>
-        <v-list-item-group v-model="selectedJanre" color="teal">
+        <v-list-item-group v-model="selectedJanre" color="teal" mandatory>
           <v-list-item @click="getAll()" link>
             <v-list-item-content>
               <v-list-item-title>すべて</v-list-item-title>
@@ -31,7 +31,7 @@
 
     <v-content>
       <v-container class="my-4">
-        <transition name="fade-transition" mode="out-in">
+        <transition name="slide-y-transition" mode="out-in">
           <div :key="selectedJanre">
             <v-alert border="left" color="teal" outlined>
               <div class="title font-weight-bold mb-2">{{ getJanreName(selectedJanre) }}</div>
@@ -103,6 +103,8 @@ export default {
     },
 
     getGames: function(janreID) {
+      if (this.selectedJanre === janreID) return;
+
       let gameCount = 0;
       for (let i = 0; i < this.games.length; i++) {
         const isShow = this.games[i].janre_id === janreID;
