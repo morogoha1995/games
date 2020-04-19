@@ -1,5 +1,17 @@
 [
   {
+    "name": "ピクシーマン2",
+    "url": "piximan2",
+    "description": "ピクシーマンに敵がいる世界",
+    "janre_id": 2
+  },
+  {
+    "name": "飛ぶクラゲ",
+    "url": "flappyjelly",
+    "description": "クラゲを土管にぶつからないように飛ばし続けるゲーム",
+    "janre_id": 3
+  },
+  {
     "name": "ピクシーマン",
     "url": "piximan",
     "description": "バナナを集めてスターを目指す2Dの横スクロールアクションゲーム",
@@ -39,12 +51,6 @@
     "name": "ぷる的あて",
     "url": "target",
     "description": "シンプルな的あてゲーム",
-    "janre_id": 3
-  },
-  {
-    "name": "飛ぶクラゲ",
-    "url": "flappyjelly",
-    "description": "クラゲを土管にぶつからないように飛ばし続けるゲーム",
     "janre_id": 3
   }
 ]
