@@ -1,5 +1,11 @@
 [
   {
+    "name": "いあいぎり",
+    "url": "iaigiri",
+    "description": "0.3秒を見逃さない反射神経が問われるゲーム",
+    "janre_id": 3
+  },
+  {
     "name": "ピクシーマン2",
     "url": "piximan2",
     "description": "ピクシーマンに敵がいる世界",

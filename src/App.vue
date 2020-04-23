@@ -67,30 +67,37 @@
 </template>
 
 <script>
-import _informations from "./informations.json";
-import janres from "./janres.json";
 import config from "./config.json";
-
-// isShowの初期値はtrue。jsonファイルに書いてもいいけどゲーム数が膨大になると冗長なのでここで全てにisShow=trueをしておく。
-let informations = [];
-let gameCount = 0;
-for (let i of _informations) {
-  gameCount++;
-  i.isShow = true;
-  informations.push(i);
-}
+import axios from "axios";
 
 export default {
   name: "App",
 
   data: () => ({
-    gameCount: gameCount,
-    games: informations,
-    janres: janres,
+    gameCount: 0,
+    games: [],
+    janres: [],
     config: config,
     drawer: false,
     selectedJanre: 0
   }),
+
+  async mounted() {
+    let rawDatas = [];
+    await axios.get("./datas/informations.json").then(resp => {
+      rawDatas = resp.data;
+    });
+    // isShowの初期値はtrue。jsonファイルに書いてもいいけどゲーム数が膨大になると冗長なのでここで全てにisShow=trueをしておく。
+    for (let data of rawDatas) {
+      this.gameCount++;
+      data.isShow = true;
+      this.games.push(data);
+    }
+
+    await axios.get("./datas/janres.json").then(resp => {
+      this.janres = resp.data;
+    });
+  },
 
   methods: {
     getAll: function() {
