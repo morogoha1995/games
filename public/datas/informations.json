@@ -1,5 +1,11 @@
 [
   {
+    "name": "octPath",
+    "url": "octpath",
+    "description": "敵の弾を避けつつできるだけ敵を倒すシューティングゲーム",
+    "janre_id": 4
+  },
+  {
     "name": "いあいぎり",
     "url": "iaigiri",
     "description": "0.3秒を見逃さない反射神経が問われるゲーム",
